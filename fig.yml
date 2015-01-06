@@ -11,6 +11,7 @@ nginx:
   build: nginx/
   ports:
     - 8080:80
+    - 8443:443
   links:
     - fpm
   volumes_from:

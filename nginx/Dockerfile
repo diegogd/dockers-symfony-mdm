@@ -10,5 +10,6 @@ ADD vhost.conf /etc/nginx/sites-enabled/default
 ADD start.sh /start.sh
 
 EXPOSE 80
+EXPOSE 443
 
 ENTRYPOINT ["/start.sh"]
