@@ -1,0 +1,35 @@
+# From https://github.com/denderello/symfony-docker-example
+symfony:
+  build: symfony/
+  links:
+    - redis
+    - mongodb
+  volumes:
+    - ./symfony/code:/var/www
+
+nginx:
+  build: nginx/
+  ports:
+    - 8080:80
+  links:
+    - fpm
+  volumes_from:
+    - symfony
+  environment:
+    <APP_SERVER_NAME>: dev-machine
+
+fpm:
+  build: php-fpm/
+  links:
+    - redis
+    - mongodb
+  volumes_from:
+    - symfony
+  environment:
+    APP_SERVER_NAME: dev-machine
+
+redis:
+  image: redis:2.8.13
+
+mongodb:
+  image: dockerfile/mongodb
