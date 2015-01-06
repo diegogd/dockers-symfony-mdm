@@ -1,0 +1,3 @@
+[submodule "symfony-mdm"]
+	path = symfony/code
+	url = git@github.com:diegogd/symfony-mdm.git
