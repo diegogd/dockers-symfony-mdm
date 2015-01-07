@@ -6,6 +6,8 @@ RUN apt-get update && apt-get install -y \
     php5-cli \
     php5-fpm \
     php5-json \
+    php5-mongo \
+    php5-xdebug \
     php5-intl
 
 ADD start.sh /start.sh

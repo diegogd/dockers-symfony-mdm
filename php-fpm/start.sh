@@ -11,4 +11,8 @@ echo "env[SYMFONY__REDIS_ADDRESS] = ${REDIS_PORT_6379_TCP_ADDR}" >> /etc/php5/fp
 #/bin/bash -l -c "php app/console giantswarm:temperature:add cologne 22"
 #/bin/bash -l -c "php app/console giantswarm:temperature:add cologne 21"
 
+echo "xdebug.max_nesting_level=100000" >> /etc/php5/fpm/conf.d/20-xdebug.ini
+echo "xdebug.remote_enable=On" >> /etc/php5/fpm/conf.d/20-xdebug.ini
+echo "xdebug.remote_connect_back=On" >> /etc/php5/fpm/conf.d/20-xdebug.ini
+
 exec /usr/sbin/php5-fpm --nodaemonize
